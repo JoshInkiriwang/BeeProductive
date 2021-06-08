@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Bee Productive</title>
+        <link rel="stylesheet" type="text/css" href="main.css"">
+        <link href='https://fonts.googleapis.com/css?family=Varela Round' rel='stylesheet'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <script type="text/javascript" src="BeeProductive.js"></script>
+        <script src="main.js"></script>
+        <script>
+            function startTime() 
+    {
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+
+        var date=today.getDate();
+        var day=today.getDay();
+        var days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+        var month=today.getMonth();
+        var months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'Jully', 'August', 'September', 'October', 'November', 'December');
+        var year=today.getFullYear();
+        // add a zero in front of numbers<10
+        m=checkTime(m);
+        document.getElementById("clock").innerHTML=h+":"+m;
+        document.getElementById("date").innerHTML = ''+days[day]+', '+months[month]+' '+date+' '+year+'';
+        t=setTimeout("startTime()",500);
+    }
+    function checkTime(j)
+    {
+        if (j<10)
+        {
+            j="0" + j;
+        }
+        return j;
+    }
+        </script>
+    </head>
+    <body onload="startTime(),service()">
+                <div class="content"> 
+        
+                    <div id="welcome-message">
+                            <h1 id="clock"></h1>
+                            <h1 id="date"></h1>
+                            <h1 id="hello">
+                                Hi, <input type="text" id="nama" placeholder="Your Name">
+                            </h1>
+                            <p id="welc-b">
+                                Welcome to Bee Productive!<br>
+                                BeeProductive is a website designed<br>
+                                to help you fulfill your daily tasks. 
+                            </p>
+                    </div>
+        
+        
+                    <div id="todoList-column" class="todo">
+                        <h3>To Do List</h3>
+                        <p>Get started on those tasks now!</p>
+        
+                        <div class="row-todo">
+                            <form id="form"> <!--var form-->
+                                <div class="input-group">
+                                    <input id="input" class="form-control" placeholder="Enter to do list"> <!--var input-->
+                                    <span>
+                                        <button id="btnAdd" type="button" class="primaryBtn">Submit</button> <!--var btnAdd-->
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="row-todo">
+                            <ul id="list" style="padding:0">
+                            </ul>
+                        </div>
+        
+                        <div class="row-todo">
+                            <button id="btnClr" type="button" class="primaryBtn">Clear</button>
+                            <br>
+                        </div>
+                    </div>
+                    <div id="notewriting-column">
+                        <div class="row-note">
+                            <h3>Notes</h3>
+                            <p>Got some ideas?<br> Write them here.</p>
+                            <div class="input-group">
+                                <textarea class="textarea" name="text" placeholder="Start writing here..." cols="40" rows="10" style="text-align:left; overflow:hidden; overflow-wrap:break-word; line-height:28px" wrap="on"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="weather">
+                        <a class="weatherwidget-io" href="https://forecast7.com/en/n6d28106d71/south-tangerang/" data-label_1="SOUTH TANGERANG" data-label_2="WEATHER" data-font="Arial Rounded MT Bold" data-icons="Climacons Animated" data-mode="Current" data-days="3" data-theme="original" data-basecolor="rgba(255, 255, 255, 0)" data-cloudfill="rgba(255, 255, 255, 0)" >SOUTH TANGERANG WEATHER</a>
+                        <script>
+                        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                        </script>
+                    </div>
+                    <div class="about-us">
+                        <button id="abtBtn" onclick="aboutus()">About Us</button>
+                    </div>
+                    <h4 id="abt"></h4>
+                    <h4>This Website is Designed to Fulfill Our Mid-Term Assignment.</h4>
+                    <h5>                           </h5>
+                    <p>&copy; Copyright 2018</p>
+                </div>
+
+    </body>
